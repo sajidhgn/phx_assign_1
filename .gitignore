@@ -1,21 +1,20 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+/_build/
+/deps/
+/doc/
+/node_modules/
+/tmp/
+/cover/
 
-# dependencies
-/assets/node_modules
+/assets/node_modules/
 
-# testing
-/coverage
+/installer/_build/
+/installer/assets/
+/installer/deps/
+/installer/doc/
+/installer/phx_new-*.ez
 
-# production
-/build
+/integration_test/_build/
+/integration_test/deps/
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+erl_crash.dump
+phoenix-*.ez
