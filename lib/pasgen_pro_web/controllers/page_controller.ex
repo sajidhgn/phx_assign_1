@@ -14,6 +14,7 @@ defmodule PasgenProWeb.PageController do
     render(conn, :home, list: list, changeset: changeset)
   end
 
+  
   def create(conn, %{"pas_gen" => list}) do
     changeset =  PasGen.changeset( %PasGen{}, list)
     if changeset.valid? do
