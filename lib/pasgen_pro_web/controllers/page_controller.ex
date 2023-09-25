@@ -22,6 +22,14 @@ defmodule PasgenProWeb.PageController do
     number = if list["number_field"]=="true", do: "true", else: ""
     uppercase = if list["uppercase_field"]=="true", do: "true", else: ""
     symbol = if list["symbol_field"]=="true", do: "true", else: ""
+
+    IO.inspect("========================")
+    IO.inspect(length)
+    IO.inspect(number)
+    IO.inspect(uppercase)
+    IO.inspect(symbol)
+    IO.inspect("========================")
+
   {:ok, password} = generate_password(length, symbol, uppercase, number)
       conn |> render(:home, list: %{"password_field" => password, "symbol_field" => symbol, "length_field" => length,"number_field" => number, "uppercase_field" => uppercase}, changeset: changeset)
     else
@@ -33,10 +41,14 @@ defmodule PasgenProWeb.PageController do
   def generate_password(length, use_symbols, use_uppercase, use_numbers) do
     charset =
       String.trim_trailing(
-        (if use_symbols, do: @symbol_chars, else: "") <>
-        (if use_uppercase, do: @uppercase_chars, else: "") <>
-        (if use_numbers, do: @number_chars, else: "")
+        (if String.length(use_symbols)>0, do: @symbol_chars, else: "") <>
+        (if String.length(use_uppercase)>0, do: @uppercase_chars, else: "") <>
+        (if String.length(use_numbers)>0, do: @number_chars, else: "")
       )
+
+      IO.inspect("========================")
+      IO.inspect(charset)
+      IO.inspect("========================")
 
       if length <= String.length(charset) do
         password = generate_password_recursive(charset, length, "")
