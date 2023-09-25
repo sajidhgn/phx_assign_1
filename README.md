@@ -16,3 +16,5 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+<img src="https://github.com/sajidhgn/phx_assign_1/blob/main/screenshot-localhost_4000-2023.09.25-15_37_43.png" width="100%" height="100%"
