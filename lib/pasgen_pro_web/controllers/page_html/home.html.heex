@@ -22,7 +22,8 @@
   </.error>
       <div class="flex mt-4">
         <input
-          type="text"
+        disabled
+          type="text" value={"#{@list["password_field"]}"}
           id="website-admin"
           class="rounded-none rounded-l-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Password"
@@ -41,27 +42,23 @@
          <div class="block mt-3">
             <.input field={f[:length_field]} type="number" min="1"
               max="40"
-              value="1" label="Password length(1-40)" /> 
+             value={"#{@list["length_field"]}"} label="Password length(1-40)" /> 
           </div>
           <div class="block mt-3">
-           
-            <.input field={f[:number_field]} type="checkbox" label=" Numbers" checked />
+          
+          <.input field={f[:number_field]} type="checkbox" label=" Numbers" checked />
+            
           </div>
        
         <div class="block mt-3">
             <.input field={f[:uppercase_field]} type="checkbox" label=" Uppercase Charactors" checked />
           </div>
+
            <div class="block mt-3">
-            <.input field={f[:symbol_field]} type="checkbox" label=" Symbols" checked />
+           <.input field={f[:symbol_field]} type="checkbox" label=" Symbols" checked />
+           
           </div>
    </.simple_form>
 
-
-  <.list>
-  <:item title="Lenght(1-40)"><%= @list["length_field"] %></:item>
-  <:item title="Numbers"><%= @list["number_field"] %></:item>
-  <:item title="Uppercase Letters"><%= @list["uppercase_field"] %></:item>
-  <:item title="Symbols"><%= @list["symbol_field"] %></:item>
-</.list>
   </div>
 </div>
