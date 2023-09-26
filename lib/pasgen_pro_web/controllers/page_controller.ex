@@ -9,7 +9,7 @@ defmodule PasgenProWeb.PageController do
 
   def home(conn, _params) do
     changeset = PasGen.changeset(%PasGen{}, %{})
-    list = %{"password_field" => "120358yi", "length_field" => 1}
+    list = %{"password_field" => "A6*(9%", "symbol_field" => "true", "length_field" => 6, "number_field" => "true", "uppercase_field" => "true"}
     render(conn, :home, list: list, changeset: changeset)
   end
 
