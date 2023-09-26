@@ -1,6 +1,8 @@
 # Elixir Phoenix Random Password Generator
 
+Medium Password
 ![Screenshot](screenshot-2.png)
+Strong Password
 ![Screenshot](screenshot-1.png)
 
 To start your Phoenix server:
