@@ -1,4 +1,6 @@
-# PasgenPro
+# Elixir Phoenix Random Password Generator
+
+![Screenshot](screenshot.png)
 
 To start your Phoenix server:
 
