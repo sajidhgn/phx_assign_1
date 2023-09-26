@@ -11,12 +11,11 @@
   </:actions>
 </.simple_form> -->
 
-
 <div class="flex h-screen bg-blue-500 w-100">
   <div class="md:w-1/4 lg:w-1/5 sm:w-full p-6 m-auto bg-white border border-gray-200 rounded-lg shadow wp-6 dark:bg-gray-800 dark:border-gray-700">
     <h2 class="mb-4 text-2xl font-bold text-center uppercase leading-6">Random Password Generator</h2>
     <p class="text-center text-sm">Instant create a secure, random password</p>
-    <.simple_form :let={f} for={@changeset} action={~p"/home"} class="mt-0" id="psdform">
+    <.simple_form :let={f} for={@changeset} action={~p"/"} class="mt-0" id="psdform">
     <.error :if={@changeset.action}>
     Oops, something went wrong! Please check the errors below.
   </.error>
@@ -40,9 +39,9 @@
       </div>
 
          <div class="block mt-3">
-            <.input field={f[:length_field]} type="number" min="1"
+            <.input field={f[:length_field]} type="number" min="6"
               max="40"
-             value={"#{@list["length_field"]}"} label="Password length(1-40)" /> 
+             value="6" label="Password length(6-40)" /> 
           </div>
           <div class="block mt-3">
           
