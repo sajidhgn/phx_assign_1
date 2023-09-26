@@ -7,6 +7,7 @@ defmodule PasgenProWeb.PageController do
   @uppercase_chars "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   @symbol_chars "!@#$%^&*()_+-=[]{}|;:'\",.<>/?\\"
 
+  @spec home(Plug.Conn.t(), any) :: Plug.Conn.t()
   def home(conn, _params) do
     changeset = PasGen.changeset(%PasGen{}, %{})
 
@@ -21,6 +22,7 @@ defmodule PasgenProWeb.PageController do
     render(conn, :home, list: list, changeset: changeset)
   end
 
+  @spec create(Plug.Conn.t(), map) :: Plug.Conn.t()
   def create(conn, %{"pas_gen" => list}) do
     changeset = PasGen.changeset(%PasGen{}, list)
 
@@ -49,6 +51,7 @@ defmodule PasgenProWeb.PageController do
     end
   end
 
+  @spec password_gen(map) :: any
   def password_gen(attrs \\ %{}) do
     length = Map.get(attrs, "length_field") |> String.to_integer()
     number = if attrs["number_field"] == "true", do: "true", else: ""
@@ -67,12 +70,13 @@ defmodule PasgenProWeb.PageController do
 
     char_list = String.graphemes(charset)
 
-    password =
-      Enum.reduce(1..length, "", fn _i, acc ->
-        char = Enum.random(char_list)
-        acc <> char
-      end)
+    #   password = Enum.reduce(1..length, "", fn _i, acc ->
+      #   char = Enum.random(char_list)
+      #   acc <> char
+      # end)
 
-    password
+      password = Enum.take_random(char_list, length)
+
+      password
   end
 end
