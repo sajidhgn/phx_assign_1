@@ -14,17 +14,30 @@ defmodule PasgenProWeb.PageController do
   end
 
 
-
-
-
   def create(conn, %{"pas_gen" => list}) do
     changeset =  PasGen.changeset( %PasGen{}, list)
 
     if changeset.valid? do
-    length = Map.get(list, "length_field") |> String.to_integer()
+
+      length = Map.get(list, "length_field") |> String.to_integer()
     number = if list["number_field"]=="true", do: "true", else: ""
     uppercase = if list["uppercase_field"]=="true", do: "true", else: ""
     symbol = if list["symbol_field"]=="true", do: "true", else: ""
+
+    password = password_gen(list)
+      conn |> render(:home, list: %{"password_field" => password, "symbol_field" => symbol, "length_field" => length,"number_field" => number, "uppercase_field" => uppercase}, changeset: changeset)
+    else
+      conn
+      |> render(:home, changeset: changeset)
+    end
+  end
+
+  def password_gen(attrs \\ %{}) do
+
+    length = Map.get(attrs, "length_field") |> String.to_integer()
+    number = if attrs["number_field"]=="true", do: "true", else: ""
+    uppercase = if attrs["uppercase_field"]=="true", do: "true", else: ""
+    symbol = if attrs["symbol_field"]=="true", do: "true", else: ""
 
     charset =
       [
@@ -41,11 +54,6 @@ defmodule PasgenProWeb.PageController do
         char = Enum.random(char_list)
         acc <> char
       end)
-
-      conn |> render(:home, list: %{"password_field" => password, "symbol_field" => symbol, "length_field" => length,"number_field" => number, "uppercase_field" => uppercase}, changeset: changeset)
-    else
-      conn
-      |> render(:home, changeset: changeset)
-    end
+      password
   end
 end
