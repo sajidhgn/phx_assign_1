@@ -41,21 +41,32 @@
          <div class="block mt-3">
             <.input field={f[:length_field]} type="number" min="6"
               max="40"
-             value="6" label="Password length(6-40)" /> 
+             value={"#{@list["length_field"]}"} label="Password length(6-40)" /> 
           </div>
           <div class="block mt-3">
-          
+          <%= if @list["number_field"]=="true" do %>
           <.input field={f[:number_field]} type="checkbox" label=" Numbers" checked />
-            
+          <% else %>
+           <.input field={f[:number_field]} type="checkbox" label=" Numbers" />
+          <% end %>
           </div>
        
         <div class="block mt-3">
-            <.input field={f[:uppercase_field]} type="checkbox" label=" Uppercase Charactors" checked />
+         <%= if @list["uppercase_field"]=="true" do %>
+          <.input field={f[:uppercase_field]} type="checkbox" label=" Uppercase Charactors" checked />
+          <% else %>
+          <.input field={f[:uppercase_field]} type="checkbox" label=" Uppercase Charactors" />
+          <% end %>
+
+            
           </div>
 
            <div class="block mt-3">
-           <.input field={f[:symbol_field]} type="checkbox" label=" Symbols" checked />
-           
+            <%= if @list["symbol_field"]=="true" do %>
+          <.input field={f[:symbol_field]} type="checkbox" label=" Symbols" checked />
+          <% else %>
+           <.input field={f[:symbol_field]} type="checkbox" label=" Symbols" />
+          <% end %>
           </div>
    </.simple_form>
 
