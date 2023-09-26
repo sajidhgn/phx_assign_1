@@ -18,7 +18,7 @@ defmodule PasgenProWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    post "/home", PageController, :create
+    post "/", PageController, :create
   end
 
   # Other scopes may use custom stacks.
