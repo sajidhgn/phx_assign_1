@@ -22,6 +22,7 @@
                         'Elixir.PasgenProWeb.Layouts',
                         'Elixir.PasgenProWeb.PageController',
                         'Elixir.PasgenProWeb.PageHTML',
+                        'Elixir.PasgenProWeb.PassGenLive',
                         'Elixir.PasgenProWeb.Router',
                         'Elixir.PasgenProWeb.Telemetry']},
               {registered,[]},
