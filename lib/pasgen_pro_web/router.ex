@@ -19,6 +19,8 @@ defmodule PasgenProWeb.Router do
 
     get "/", PageController, :home
     post "/", PageController, :create
+
+    live "/password-generator-live", PassGenLive
   end
 
   # Other scopes may use custom stacks.
