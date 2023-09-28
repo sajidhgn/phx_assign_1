@@ -70,12 +70,10 @@ defmodule PasgenProWeb.PageController do
 
     char_list = String.graphemes(charset)
 
-    #   password = Enum.reduce(1..length, "", fn _i, acc ->
-      #   char = Enum.random(char_list)
-      #   acc <> char
-      # end)
-
-      password = Enum.take_random(char_list, length)
+    password = Enum.reduce(1..length, "", fn _i, acc ->
+      char = Enum.random(char_list)
+      acc <> char
+      end)
 
       password
   end
